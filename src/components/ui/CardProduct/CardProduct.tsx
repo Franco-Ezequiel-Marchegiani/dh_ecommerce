@@ -1,7 +1,25 @@
+import { useContext } from 'react'
 import styles from './CardProduct.module.css'
+import { CartContext } from '../../../context/CartContext';
 const CardProduct = (props) => {
+  const {product} = props
+
+  const {dispatch} = useContext(CartContext)
+  
+  const item = {
+    id: product.tail,
+    name: product.name,
+    image: product.image,
+    quantity: 1
+  }
+
+  const addToCart = (item) =>{
+    console.log(item);
     
-    const {product} = props
+    dispatch({type: "ADD_TO_CART", payload: item})
+  }
+  
+    
 
   return (
     <div className={styles.cardContainer}>
@@ -12,7 +30,7 @@ const CardProduct = (props) => {
                 <p className={styles.cardType}>{product.type}</p>
                 <p className={styles.cardPrice}>Price, <small>{product.price}</small></p>
             </div>
-            <button className={styles.cardButton}>Add to cart</button>
+            <button className={styles.cardButton} onClick={()=> addToCart(item)}>Add to cart</button>
       </div>
       
     </div>

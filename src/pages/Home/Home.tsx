@@ -23,7 +23,6 @@ const Home = () => {
     getProducts();
   },[])
   
-  console.log(products);
   
   return (
     <div>
