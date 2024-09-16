@@ -19,7 +19,8 @@ const CardProduct: FC<Props> = (props) => {
     id: product.id,
     name: product.name,
     image: product.image,
-    quantity: 1
+    price: product.price,
+    quantity: 1,
   }
 
   const addToCart = (item: CartProduct) =>{
