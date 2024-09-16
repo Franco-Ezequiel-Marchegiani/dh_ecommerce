@@ -1,6 +1,11 @@
 import styles from './CartModal.module.css'
 import Close from '../../../assets/close.svg'
-const CartModal = (props) => {
+import { FC } from 'react'
+
+interface Props{
+  handleShowCartModal: () => void
+}
+const CartModal: FC<Props> = (props) => {
     const {handleShowCartModal} = props
   return (
     <div className={styles.modalContainer}>
