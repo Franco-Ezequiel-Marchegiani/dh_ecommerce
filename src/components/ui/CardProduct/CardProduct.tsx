@@ -7,19 +7,26 @@ interface Props{
   prodcut: Product
 }
 
+interface CardProduct{
+  id: number;
+  name: string;
+  image: string;
+  quantity: number;
+}
+
 const CardProduct: FC<Props> = (props) => {
   const {product} = props
 
   const {dispatch} = useContext(CartContext)
   
-  const item = {
-    id: product.tail,
+  const item: CardProduct = {
+    id: product.id,
     name: product.name,
     image: product.image,
     quantity: 1
   }
 
-  const addToCart = (item) =>{
+  const addToCart = (item: CardProduct) =>{
     console.log(item);
     
     dispatch({type: "ADD_TO_CART", payload: item})
