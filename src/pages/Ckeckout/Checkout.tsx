@@ -1,6 +1,7 @@
 import React from "react";
 import { Table } from "../../components/ui/Table/Table";
 import styles from './Checkout.module.css'
+import { CardCredit } from "../../components/ui/CardCredit/CardCredit";
 const Checkout = () => {
   return( 
     <div className={styles.container}>
@@ -10,7 +11,7 @@ const Checkout = () => {
             <Table/>
             </div>
             <div>
-                {/* Formulario Tarjeta */}
+                <CardCredit/>
             </div>
         </div>
         <button className={styles.buyButton}>Buy now</button>
