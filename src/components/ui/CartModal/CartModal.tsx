@@ -20,6 +20,14 @@ const CartModal: FC<Props> = (props) => {
       dispatch({type:"REMOVE_FROM_CART", payload: item})
     }
     console.log(cartItems);
+
+    const totalPay = () =>{
+      const total = cartItems.reduce((accumulator, item) =>{
+        return accumulator + item.price * item.quantity
+      }, 0)
+
+      return total
+    }
     
   return (
     <div className={styles.modalContainer}>
@@ -57,7 +65,7 @@ const CartModal: FC<Props> = (props) => {
         </tbody>
       </table>
       <div className={styles.modalTotalContainer}>
-        <h3>Total: 400,00</h3>
+        <h3>{totalPay()}</h3>
       </div>
       <div className={styles.modalButtonContainer}>
         <button>Checkout</button>
