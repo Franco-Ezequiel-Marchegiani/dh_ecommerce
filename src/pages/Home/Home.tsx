@@ -4,6 +4,7 @@ import style from './Home.module.css'
 import CardProduct from "../../components/ui/CardProduct/CardProduct"
 import { getProducts } from "../../service"
 import { Product } from "../../interface/products"
+import { Toaster } from "sonner"
 
 const Home = () => {
 
@@ -28,6 +29,7 @@ const Home = () => {
   return (
     <div>
       <Hero/>
+      <Toaster richColors />
       {isLoading && <p>Loading...</p> }
       {error && <p>Something went wrong</p> }
       <div className={style.container}>

@@ -2,6 +2,7 @@ import { FC } from 'react'
 import styles from './CardProduct.module.css'
 import { CartProduct, Product } from '../../../interface';
 import useCartContext from '../../../hooks/useCartContext';
+import { toast } from 'sonner';
 
 interface Props{
   prodcut: Product
@@ -25,7 +26,8 @@ const CardProduct: FC<Props> = (props) => {
 
   const addToCart = (item: CartProduct) =>{
     console.log(item);
-    
+    //Añadiendo sistema de alerta o notificación
+    toast.success("Product added to cart")
     dispatch({type: "ADD_TO_CART", payload: item})
   }
   
