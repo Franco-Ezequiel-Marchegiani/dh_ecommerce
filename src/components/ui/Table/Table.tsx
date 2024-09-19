@@ -1,4 +1,3 @@
-import React from "react";
 import styles from './Table.module.css'
 import useCartContext from '../../../hooks/useCartContext'
 import { CartProduct } from '../../../interface'
