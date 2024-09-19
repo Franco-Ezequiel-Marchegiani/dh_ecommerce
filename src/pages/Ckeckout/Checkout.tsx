@@ -5,7 +5,15 @@ const Checkout = () => {
   return( 
     <div className={styles.container}>
         <h1 className={styles.title}>Checkout</h1>
-        <Table/>
+        <div className={styles.grid}>
+            <div className={styles.tableContainer}>
+            <Table/>
+            </div>
+            <div>
+                {/* Formulario Tarjeta */}
+            </div>
+        </div>
+        <button className={styles.buyButton}>Buy now</button>
     </div>
     );
 };

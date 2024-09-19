@@ -14,7 +14,6 @@ const CartModal: FC<Props> = (props) => {
     const navigate = useNavigate();
 
     const handleNavigate = () =>{
-      console.log("Hola");
       
         navigate("/checkout")
         handleShowCartModal()
