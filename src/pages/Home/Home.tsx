@@ -15,7 +15,7 @@ const Home = () => {
     () => getProducts(page), 
     {keepPreviousData: true}
   );
-  //console.log(data);
+  console.log(data);
   
   /* Crear un estado con valor Booleano, en el qué, si ya se recorrió toda la API.
   Que arroje un valor true, si es verdadero, entonces que se deshabilite el botón de Next. */

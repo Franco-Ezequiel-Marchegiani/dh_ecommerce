@@ -10,6 +10,7 @@ export interface Product {
     type:         string;
     id:           number;
     price:        number;
+    lastPage:     boolean;
 }
 
 export interface Release {

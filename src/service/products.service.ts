@@ -11,13 +11,10 @@ export const getProducts = async (page = 0):Promise<Product[]> =>{
       if (response.ok) {
         
         const data = await response.json()
-        const dataPages = data.pages
+        const dataApi = data.data
         
-        if(page > dataPages){
-          console.log("HOLA");
-          
-        }
-        return data.data
+
+        return dataApi
 
       }else{
         throw new Error('Faild to fetch products')
