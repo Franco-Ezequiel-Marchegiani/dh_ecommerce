@@ -1,4 +1,3 @@
-import React from "react";
 import { Table } from "../../components/ui/Table/Table";
 import styles from './Checkout.module.css'
 import { CardCredit } from "../../components/ui/CardCredit/CardCredit";

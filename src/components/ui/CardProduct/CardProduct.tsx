@@ -5,12 +5,13 @@ import useCartContext from '../../../hooks/useCartContext';
 import { toast } from 'sonner';
 
 interface Props{
-  prodcut: Product
+  product: Product
 }
 
 
 
 const CardProduct: FC<Props> = (props) => {
+  
   const {product} = props
 
   const {dispatch} = useCartContext()
