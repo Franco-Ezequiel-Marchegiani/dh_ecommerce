@@ -5,10 +5,13 @@ import CardProduct from "../../components/ui/CardProduct/CardProduct"
 import { getProducts } from "../../service"
 import { Product } from "../../interface/products"
 import { Toaster } from "sonner"
+import { useQuery } from "react-query"
 
 const Home = () => {
 
-  const [products, setProducts] = useState<Product[]>([])
+  const {data, isLoading, error}= useQuery('products', getProducts)
+
+  /* const [products, setProducts] = useState<Product[]>([])
   const [error, setError] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
@@ -20,7 +23,7 @@ const Home = () => {
     }).finally(() =>{
       setIsLoading(false)
     });
-  },[])
+  },[]) */
   
   console.log(isLoading);
   console.log(error);
@@ -33,7 +36,7 @@ const Home = () => {
       {isLoading && <p>Loading...</p> }
       {error && <p>Something went wrong</p> }
       <div className={style.container}>
-        {products.map((product) =>(
+        {data?.map((product) =>(
           <CardProduct key={product.tail} product={product}/>
         ))}
       </div>

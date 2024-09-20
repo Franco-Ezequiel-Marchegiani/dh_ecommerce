@@ -6,6 +6,9 @@ import LayoutMain from './components/Layouts/LayoutMain.tsx'
 import Home from './pages/Home/Home.tsx'
 import { CartProvider } from './context/CartProvider.tsx'
 import Checkout from './pages/Ckeckout/Checkout.tsx'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -20,8 +23,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <CartProvider>
-      <RouterProvider router={router}/>
-    </CartProvider>
+    <QueryClientProvider client={queryClient}>
+      <CartProvider>
+        <RouterProvider router={router}/>
+      </CartProvider>
+    </QueryClientProvider>
   </StrictMode>,
 )
