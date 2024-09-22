@@ -7,6 +7,7 @@ import Home from './pages/Home/Home.tsx'
 import { CartProvider } from './context/CartProvider.tsx'
 import Checkout from './pages/Ckeckout/Checkout.tsx'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { Login } from './pages/Login/Login.tsx'
 
 const queryClient = new QueryClient()
 
@@ -18,6 +19,14 @@ const router = createBrowserRouter([
       { index: true, element: <Home />},
       { path: '/checkout',element: <Checkout/>}
     ]
+  },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/dashboard",
+    element: <p>Dashboard</p>
   }
 ])
 

@@ -41,7 +41,7 @@ const CardProduct: FC<Props> = (props) => {
             <h3 className={styles.cardTitle}>{product.name}</h3>
             <div className={styles.cardBody}>
                 <p className={styles.cardType}>{product.type}</p>
-                <p className={styles.cardPrice}>Price, <small>{product.price}</small></p>
+                <p className={styles.cardPrice}>Price: $<small>{product.price}</small></p>
             </div>
             <button className={styles.cardButton} onClick={()=> addToCart(item)}>Add to cart</button>
       </div>

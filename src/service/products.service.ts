@@ -11,7 +11,10 @@ export const getProducts = async (page = 0):Promise<Product[]> =>{
       if (response.ok) {
         
         const data = await response.json()
-        const dataApi = data.data
+        const dataApi = [...data.data, false]
+
+        console.log(data);
+        //console.log(dataApi);
         
 
         return dataApi
