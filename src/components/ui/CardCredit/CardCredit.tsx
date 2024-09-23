@@ -73,6 +73,7 @@ export const CardCredit = () => {
             name={name}
             expiry={expiry}
             cvc={cvc}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             focused={focused as any}/>
         </div>
         <form onSubmit={handleSubmit}>

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import style from './Dashboard.module.css'
 import { useNavigate } from "react-router-dom";
+import { useMutation } from "react-query";
+import { Product } from "../../interface";
+import { createProduct } from "../../service";
 
 const Dashboard = () => {
 
@@ -34,6 +37,7 @@ const Dashboard = () => {
         navigate("/login")
     }
 
+    //Function para cambiar la info de los inputs
     const handleOnChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
         
         setDataProduct({
@@ -42,10 +46,17 @@ const Dashboard = () => {
         })
     }
 
+    //Proceso para modificar o agregar data a la API
+    const mutation = useMutation((newProduct: Product) =>{
+        return createProduct(newProduct)
+    })
+
+    //Funcion para enviar la info del form
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) =>{
         e.preventDefault();
         console.log(dataProduct);
         
+        mutation.mutate(dataProduct)
 
     }
 
