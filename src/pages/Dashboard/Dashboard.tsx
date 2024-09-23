@@ -1,14 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from './Dashboard.module.css'
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+
+    const [dataProduct, setDataProduct] = useState({
+        amiiboSeries: '',
+        character: '',
+        gameSeries: '',
+        head: '',
+        image: '',
+        name: '',
+        release: '',
+        tail: '',
+        type: '',
+        price: 0,
+    })
+    const navigate = useNavigate()
+
+    useEffect(() =>{
+        //Extraemos el item del LocalStorage para ver si pasó por el proceso de registro
+        const userLogin = localStorage.getItem('userLogin')
+        
+        //En caso de no contar con ello, se lo envía al login
+        if (!userLogin){
+            navigate("/login")
+        }
+        
+    }, [])
+
+    const handleLogOut = () =>{
+        localStorage.removeItem("userLogin")
+        navigate("/login")
+    }
+
+    const handleOnChange = (e:React.ChangeEvent<HTMLInputElement>) =>{
+        
+        setDataProduct({
+            ...dataProduct,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = (e:React.FormEvent<HTMLFormElement>) =>{
+        e.preventDefault();
+        console.log(dataProduct);
+        
+
+    }
+
   return(
     <div className={style.container}>
         <div>
             <h1>Dashboard</h1>
-            <button>Log out</button>
+            <button onClick={handleLogOut}>Log out</button>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
             {/* AmiiboSeries */}
             <div className={style.formControlLogin}>
                 <label htmlFor="amiiboSeries">Amiibo Series</label>
@@ -16,8 +63,8 @@ const Dashboard = () => {
                     type="text"
                     id="amiiboSeries"
                     name="amiiboSeries"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.amiiboSeries}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* Character */}
@@ -27,8 +74,8 @@ const Dashboard = () => {
                     type="text"
                     id="character"
                     name="character"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.character}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* gameSeries */}
@@ -38,8 +85,8 @@ const Dashboard = () => {
                     type="text"
                     id="gameSeries"
                     name="gameSeries"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.gameSeries}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* head */}
@@ -49,8 +96,8 @@ const Dashboard = () => {
                     type="text"
                     id="head"
                     name="head"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.head}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* image */}
@@ -60,8 +107,8 @@ const Dashboard = () => {
                     type="url"
                     id="image"
                     name="image"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.image}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* name */}
@@ -71,8 +118,8 @@ const Dashboard = () => {
                     type="text"
                     id="name"
                     name="name"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.name}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* release */}
@@ -82,8 +129,8 @@ const Dashboard = () => {
                     type="date"
                     id="release"
                     name="release"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.release}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* tail */}
@@ -93,8 +140,8 @@ const Dashboard = () => {
                     type="text"
                     id="tail"
                     name="tail"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.tail}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* type */}
@@ -104,8 +151,8 @@ const Dashboard = () => {
                     type="text"
                     id="type"
                     name="type"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.type}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             {/* price */}
@@ -115,8 +162,8 @@ const Dashboard = () => {
                     type="number"
                     id="price"
                     name="price"
-                    value={''}
-                    onChange={() =>{}} 
+                    value={dataProduct.price}
+                    onChange={handleOnChange} 
                     required/>
             </div>
             <div className={style.formControlLogin}>
